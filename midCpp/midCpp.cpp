@@ -358,6 +358,10 @@ int main() {
 	while (1) {//主循环
 		showfunction();
 		int choose{ 0 };
+
+
+		cout << "git测试更改-zmc 21/51" << endl;
+
 		while (choose < 2 || choose>7) {
 			cout << "请选择你想使用的功能（输入数字）" << endl;
 			cin >> choose;
