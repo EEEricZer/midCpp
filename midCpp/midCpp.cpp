@@ -361,6 +361,7 @@ int main() {
 
 
 		cout << "git测试更改-zmc 21/51" << endl;
+		cout << "git浏览器模拟他人更改测试-zmc 21/58" << endl;
 
 		while (choose < 2 || choose>7) {
 			cout << "请选择你想使用的功能（输入数字）" << endl;
