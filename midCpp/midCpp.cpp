@@ -1,5 +1,4 @@
-﻿
-#include <iostream>
+﻿#include <iostream>
 #include <filesystem>
 #include <fstream>
 #include <string>
@@ -65,7 +64,7 @@ public:
 			line++;
 		}
 
-		return line;
+		return 0;
 	}
 
 
@@ -135,7 +134,7 @@ public:
 			}
 			else
 			{
-				strFileData += tmpLineData;
+				strFileData += CharToStr(tmpLineData);
 				strFileData += "\n";
 			}
 			line++;
@@ -268,12 +267,12 @@ public:
 					cout << "释义不能为空！" << endl;
 					return false;
 				}
-				changeLine(wb, lineNum, "释义：" + info);
+				changeLine(wb, lineNum+1, "释义：" + info);
 				break;
 			case 2:
 				cout << "修改后的内容";
 				cin >> info;
-				changeLine(wb, lineNum, "典型例句：" + info);
+				changeLine(wb, lineNum+2, "典型例句：" + info);
 				break;
 			default:
 				cout << "选项错误";
@@ -360,9 +359,7 @@ int main() {
 		showfunction();
 		int choose{ 0 };
 
-
-		cout << "git测试更改-zmc 21/51" << endl;
-		cout << "git浏览器模拟他人更改测试-zmc 21/58" << endl;
+		cout << "测试验证";
 
 		while (choose < 2 || choose>7) {
 			cout << "请选择你想使用的功能（输入数字）" << endl;
@@ -396,4 +393,3 @@ int main() {
 	}
 	return 0;
 }
-

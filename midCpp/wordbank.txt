@@ -1,40 +1,40 @@
-序号：1 
-拼写：fever
-  释义：n.发烧; 发热; 热(病); 激动不安; 兴奋紧张 v.使发高烧; 使狂热; 煽动
-典型例句：He has a high fever.
-序号：2 
-拼写：grand
- 释义：adj.壮丽的;堂皇的;重大的;(用于大建筑物等的名称)大;宏大的;宏伟的;有气派的 n.1 000元;1 000英镑
-典型例句：It's not a very grand house.
-序号：3 
-拼写：ounce
- 释义：n.盎司(重量单位，????磅，等于28.35克);少许;少量;一点点;丝毫
-典型例句：There's not an ounce of truth in her story.
-序号：4 
-拼写：ordinary
- 释义：adj. 普通的;平常的;一般的;平凡的;平庸的;平淡无奇的
-典型例句：an ordinary sort of day
-序号：5 
-拼写：rural
- 释义：
-典型例句：
-序号：6 
-拼写：bow
- 释义：
-典型例句：
-序号：7 
-拼写：plug
- 释义：
-典型例句：
-序号：8 
-拼写：nut
- 释义：
-典型例句：
-序号：9 
-拼写：duck
- 释义：
-典型例句：
-序号：10 
-拼写：dull
- 释义：
-典型例句：
+��ţ�1 
+ƴд��fever
+  ���壺n.����; ����; ��(��); ��������; �˷ܽ��� v.ʹ������; ʹ����; ɿ��
+�������䣺He has a high fever.
+��ţ�2 
+ƴд��grand
+ ���壺adj.׳����;�ûʵ�;�ش��;(���ڴ�����ȵ�����)��;����;��ΰ��;�����ɵ� n.1 000Ԫ;1 000Ӣ��
+�������䣺It's not a very grand house.
+��ţ�3 
+ƴд��ounce
+ ���壺n.��˾(������λ��????��������28.35��);����;����;һ���;˿��
+�������䣺There's not an ounce of truth in her story.
+��ţ�4 
+ƴд��ordinary
+ ���壺adj. ��ͨ��;ƽ����;һ���;ƽ����;ƽӹ��;ƽ�������
+�������䣺an ordinary sort of day
+��ţ�5 
+ƴд��rural
+ ���壺
+�������䣺
+��ţ�6 
+ƴд��bow
+ ���壺
+�������䣺
+��ţ�7 
+ƴд��plug
+ ���壺
+�������䣺
+��ţ�8 
+ƴд��nut
+ ���壺
+�������䣺
+��ţ�9 
+ƴд��duck
+���壺yazi
+�������䣺
+��ţ�10 
+ƴд��dull
+ ���壺
+�������䣺
