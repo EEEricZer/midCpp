@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿
+#include <iostream>
 #include <filesystem>
 #include <fstream>
 #include <string>
@@ -33,27 +34,27 @@ public:
 		{
 			fs::path p{ bank };
 			ofstream output{ p };
-			output << "序号：1 " << endl << "拼写：fever" << endl << "  释义：n.发烧; 发热; 热(病); 激动不安; 兴奋紧张 v.使发高烧; 使狂热; 煽动" <<  endl << "典型例句：He has a high fever." << endl;
-			output << "序号：2 " << endl << "拼写：grand" << endl << " 释义：adj.壮丽的;堂皇的;重大的;(用于大建筑物等的名称)大;宏大的;宏伟的;有气派的 n.1 000元;1 000英镑" << endl  << "典型例句：It's not a very grand house." << endl;
+			output << "序号：1 " << endl << "拼写：fever" << endl << "  释义：n.发烧; 发热; 热(病); 激动不安; 兴奋紧张 v.使发高烧; 使狂热; 煽动" << endl << "典型例句：He has a high fever." << endl;
+			output << "序号：2 " << endl << "拼写：grand" << endl << " 释义：adj.壮丽的;堂皇的;重大的;(用于大建筑物等的名称)大;宏大的;宏伟的;有气派的 n.1 000元;1 000英镑" << endl << "典型例句：It's not a very grand house." << endl;
 			output << "序号：3 " << endl << "拼写：ounce" << endl << " 释义：n.盎司(重量单位，¹⁄₁₆磅，等于28.35克);少许;少量;一点点;丝毫" << endl << "典型例句：There's not an ounce of truth in her story." << endl;
 			output << "序号：4 " << endl << "拼写：ordinary" << endl << " 释义：adj. 普通的;平常的;一般的;平凡的;平庸的;平淡无奇的" << endl << "典型例句：an ordinary sort of day" << endl;
 			output << "序号：5 " << endl << "拼写：rural" << endl << " 释义：" << endl << "典型例句：" << endl;
-			output << "序号：6 " << endl << "拼写：bow" << endl << " 释义："  << endl << "典型例句：" << endl;
-			output << "序号：7 " << endl << "拼写：plug" << endl << " 释义："  << endl << "典型例句：" << endl;
-			output << "序号：8 " << endl << "拼写：nut" << endl << " 释义："  << endl << "典型例句：" << endl;
-			output << "序号：9 " << endl << "拼写：duck" << endl << " 释义："  << endl << "典型例句：" << endl;
-			output << "序号：10 " << endl << "拼写：dull" << endl << " 释义："  << endl << "典型例句：" << endl;
+			output << "序号：6 " << endl << "拼写：bow" << endl << " 释义：" << endl << "典型例句：" << endl;
+			output << "序号：7 " << endl << "拼写：plug" << endl << " 释义：" << endl << "典型例句：" << endl;
+			output << "序号：8 " << endl << "拼写：nut" << endl << " 释义：" << endl << "典型例句：" << endl;
+			output << "序号：9 " << endl << "拼写：duck" << endl << " 释义：" << endl << "典型例句：" << endl;
+			output << "序号：10 " << endl << "拼写：dull" << endl << " 释义：" << endl << "典型例句：" << endl;
 		}
 		wordnum = 10;
 
 	}
 
 	//根据单词获取某一行行号
-	int getnum(WordBank wb,string word)
+	int getnum(WordBank wb, string word)
 	{
 		ifstream in(wb.bank);
 		char lineData[1024] = { 0 };
-		int line=1;
+		int line = 1;
 
 		while (in.getline(lineData, 1024))
 		{
@@ -64,7 +65,7 @@ public:
 			line++;
 		}
 
-		return 0;
+		return line;
 	}
 
 
@@ -114,7 +115,7 @@ public:
 	}
 
 	//修改某一行
-	void changeLine(WordBank wb, int lineNum,string info)
+	void changeLine(WordBank wb, int lineNum, string info)
 	{
 		ifstream in;
 		string fileName = wb.bank;
@@ -150,26 +151,26 @@ public:
 	}
 
 	//打印某n行
-	void printLines(WordBank wb, int lineNum,int n)
+	void printLines(WordBank wb, int lineNum, int n)
 	{
 		ifstream in;
 		string fileName = wb.bank;
 		char data[1024] = { 0 };
 		in.open(fileName);
 
-		int line = 1,i=0;
+		int line = 1, i = 0;
 		while (in.getline(data, 1024))
 		{
-			if (lineNum == line || i>0)
+			if (lineNum == line || i > 0)
 			{
 				if (i >= n)
 				{
 					cout << endl;
 					break;
 				}
-				cout << CharToStr(data)<<endl;
+				cout << CharToStr(data) << endl;
 				i++;
-				
+
 			}
 			line++;
 		}
@@ -178,15 +179,15 @@ public:
 
 	bool add(WordBank wb) //添加
 	{
-		ofstream file{wb.bank,std::ios::app};
+		ofstream file{ wb.bank,std::ios::app };
 		string tool;
 		string spell, mean, sentence;
 
 		cout << "你将添加第" << wb.wordnum + 1 << "个单词";
-		cout << "序号：" << wb.wordnum + 1 << endl << "拼写:";cin >> spell;
+		cout << "序号：" << wb.wordnum + 1 << endl << "拼写:"; cin >> spell;
 		if (spell == "")
 		{
-			cout << "拼写不能为空！"<<endl;
+			cout << "拼写不能为空！" << endl;
 			return false;
 		}
 		cout << endl << "释义:"; cin >> mean;
@@ -198,7 +199,7 @@ public:
 		cout << endl << "例句："; cin >> sentence;
 
 		wb.wordnum++;
-		file<< "序号："<<wb.wordnum << endl << "拼写："<<spell << endl << " 释义："<<mean << endl << "典型例句：" <<sentence <<endl;
+		file << "序号：" << wb.wordnum << endl << "拼写：" << spell << endl << " 释义：" << mean << endl << "典型例句：" << sentence << endl;
 		return true;
 	}
 
@@ -206,12 +207,12 @@ public:
 	{
 		string word;
 		int lineNum = 0;
-		
+
 		cout << "你想删除的单词:";
 		cin >> word;
 
-		lineNum = getnum(wb, "拼写："+word);
-		if(lineNum == 0)
+		lineNum = getnum(wb, "拼写：" + word);
+		if (lineNum == 0)
 		{
 			cout << "单词不存在!";
 			return false;
@@ -230,15 +231,15 @@ public:
 
 	bool change(WordBank wb) //更新函数
 	{
-		string word,info;
+		string word, info;
 		int lineNum = 0;
 		int part;
-		
+
 		cout << "你想修改的单词:";
 		cin >> word;
 		cin.tie(&cout);
 
-		lineNum = getnum(wb, "拼写："+word);
+		lineNum = getnum(wb, "拼写：" + word);
 		if (lineNum == 0)
 		{
 			cout << "单词不存在!";
@@ -257,7 +258,7 @@ public:
 					cout << "拼写不能为空！" << endl;
 					return false;
 				}
-				changeLine(wb, lineNum, "拼写："+info);
+				changeLine(wb, lineNum, "拼写：" + info);
 				break;
 			case 1:
 				cout << "修改后的内容";
@@ -267,18 +268,18 @@ public:
 					cout << "释义不能为空！" << endl;
 					return false;
 				}
-				changeLine(wb, lineNum, "释义："+info);
+				changeLine(wb, lineNum, "释义：" + info);
 				break;
 			case 2:
 				cout << "修改后的内容";
 				cin >> info;
-				changeLine(wb, lineNum, "典型例句："+info);
+				changeLine(wb, lineNum, "典型例句：" + info);
 				break;
 			default:
 				cout << "选项错误";
 				return false;
 			}
-	
+
 		}
 		return true;
 	}
@@ -287,11 +288,11 @@ public:
 	{
 		string word;
 		int lineNum = 0;
-		
+
 		cout << "你想查询的单词:";
 		cin >> word;
 
-		lineNum = getnum(wb, "拼写："+word);
+		lineNum = getnum(wb, "拼写：" + word);
 		if (lineNum == 0)
 		{
 			cout << "单词不存在!";
@@ -303,16 +304,16 @@ public:
 			printLines(wb, lineNum, WORDINFOLEN);
 		}
 
-		return true; 
+		return true;
 	}
 
 	void browse(WordBank wb) //浏览函数，打印单词表
 	{
-		int choose,maxLine;
+		int choose, maxLine;
 		ifstream normal, reverse;
-		
+
 		char data[1024] = { 0 };
-		
+
 		cout << "正序(0)倒序(1)浏览？";
 		cin >> choose;
 
@@ -321,12 +322,12 @@ public:
 			normal.open(wb.bank);
 			while (normal.getline(data, 1024))
 			{
-				cout << CharToStr(data)<<endl;
+				cout << CharToStr(data) << endl;
 			}
 			normal.close();
 			break;
 		case 1:
-			for (maxLine = WORDINFOLEN * wb.wordnum +1; maxLine >= 0; maxLine -= WORDINFOLEN)
+			for (maxLine = WORDINFOLEN * wb.wordnum + 1; maxLine >= 0; maxLine -= WORDINFOLEN)
 			{
 				printLines(wb, maxLine, WORDINFOLEN);
 			}
@@ -395,3 +396,4 @@ int main() {
 	}
 	return 0;
 }
+
