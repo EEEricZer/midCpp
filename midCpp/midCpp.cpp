@@ -50,16 +50,16 @@ public:
 		{
 			fs::path p{ tempBank };
 			ofstream output{ p };
-			output << "序号：1 " << endl << "拼写：fever" << endl << "释义：n.发烧; 发热; 热(病); 激动不安; 兴奋紧张 v.使发高烧; 使狂热; 煽动" << endl << "例句：He has a high fever." << endl;
-			output << "序号：2 " << endl << "拼写：grand" << endl << "释义：adj.壮丽的;堂皇的;重大的;(用于大建筑物等的名称)大;宏大的;宏伟的;有气派的 n.1 000元;1 000英镑" << endl << "例句：It's not a very grand house." << endl;
-			output << "序号：3 " << endl << "拼写：ounce" << endl << "释义：n.盎司(重量单位，¹⁄₁₆磅，等于28.35克);少许;少量;一点点;丝毫" << endl << "例句：There's not an ounce of truth in her story." << endl;
-			output << "序号：4 " << endl << "拼写：ordinary" << endl << "释义：adj. 普通的;平常的;一般的;平凡的;平庸的;平淡无奇的" << endl << "例句：an ordinary sort of day" << endl;
-			output << "序号：5 " << endl << "拼写：rural" << endl << "释义：" << endl << "例句：" << endl;
-			output << "序号：6 " << endl << "拼写：bow" << endl << "释义：" << endl << "例句：" << endl;
-			output << "序号：7 " << endl << "拼写：plug" << endl << "释义：" << endl << "例句：" << endl;
-			output << "序号：8 " << endl << "拼写：nut" << endl << "释义：" << endl << "例句：" << endl;
-			output << "序号：9 " << endl << "拼写：duck" << endl << "释义：" << endl << "例句：" << endl;
-			output << "序号：10 " << endl << "拼写：dull" << endl << "释义：" << endl << "例句：" << endl;
+			output << "序号：1" << endl << "拼写：fever" << endl << "释义：n.发烧; 发热; 热(病); 激动不安; 兴奋紧张 v.使发高烧; 使狂热; 煽动" << endl << "例句：He has a high fever." << endl;
+			output << "序号：2" << endl << "拼写：grand" << endl << "释义：adj.壮丽的;堂皇的;重大的;(用于大建筑物等的名称)大;宏大的;宏伟的;有气派的 n.1 000元;1 000英镑" << endl << "例句：It's not a very grand house." << endl;
+			output << "序号：3" << endl << "拼写：ounce" << endl << "释义：n.盎司(重量单位，¹⁄₁₆磅，等于28.35克);少许;少量;一点点;丝毫" << endl << "例句：There's not an ounce of truth in her story." << endl;
+			output << "序号：4" << endl << "拼写：ordinary" << endl << "释义：adj. 普通的;平常的;一般的;平凡的;平庸的;平淡无奇的" << endl << "例句：an ordinary sort of day" << endl;
+			output << "序号：5" << endl << "拼写：rural" << endl << "释义：" << endl << "例句：" << endl;
+			output << "序号：6" << endl << "拼写：bow" << endl << "释义：" << endl << "例句：" << endl;
+			output << "序号：7" << endl << "拼写：plug" << endl << "释义：" << endl << "例句：" << endl;
+			output << "序号：8" << endl << "拼写：nut" << endl << "释义：" << endl << "例句：" << endl;
+			output << "序号：9" << endl << "拼写：duck" << endl << "释义：" << endl << "例句：" << endl;
+			output << "序号：10" << endl << "拼写：dull" << endl << "释义：" << endl << "例句：" << endl;
 			
 			file.close();
 		}
@@ -172,7 +172,7 @@ public:
 		{
 			if (line == lineNum)
 			{
-				return std::stoi(CharToStr(lineData, 7));
+				return std::stoi(CharToStr(lineData, 6));
 			}
 			
 			line++;
@@ -288,8 +288,9 @@ public:
 		ofstream file{ tempBank,std::ios::app };
 		string tool;
 		string spell, mean, sentence;
+		int wordId = indexStack.top();
 
-		cout << "你将添加到序号" << indexStack.top() << "位的单词" << endl;
+		cout << "你将添加到序号" << wordId << "位的单词" << endl;
 		
 		cout << "拼写:"; cin >> spell;
 		if (spell == "")
@@ -315,10 +316,13 @@ public:
 		//两个记录性质变量的更改
 		wordNum++;
 		indexStack.pop();
-		indexStack.push(wordNum);
+		if (indexStack.empty())
+		{
+			indexStack.push(wordNum + 1);
+		}
 
 
-		file << "序号：" << wordNum << endl << "拼写：" << spell << endl << "释义：" << mean << endl << "例句：" << sentence << endl;
+		file << "序号：" << wordId << endl << "拼写：" << spell << endl << "释义：" << mean << endl << "例句：" << sentence << endl;
 		return true;
 	}
 
@@ -340,7 +344,7 @@ public:
 		else
 		{
 			lineNum--;
-			indexStack.push(lineNum);//空缺索引,压栈
+			indexStack.push(getid(lineNum));//空缺索引,压栈
 			deleteLine( lineNum,WORDINFOLEN);
 		}
 
